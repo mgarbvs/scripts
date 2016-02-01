@@ -1,0 +1,22 @@
+#!/bin/bash
+FREQUENCY=0.001
+
+downspeed()
+{
+    rx1=$(grep 'cpu ' /proc/stat | awk '{usage=($2+$4)*100/($2+$4+$5)} END {print usage}')
+    #rx1=$(cat /sys/class/hwmon/hwmon1/temp1_input)
+
+
+    sleep $FREQUENCY
+
+rx2=`sensors | awk '/Core\ 0/ {gsub(/\+/,"",$3); gsub(/\..+/,"",$3)    ; print $3}'`
+    rxdiff=$(echo "$rx2 + $rx1 " | bc -l)
+    rxtrue=$(echo "$rxdiff/2000/$FREQUENCY" | bc -l)
+
+    printf "%.0f\n" "$rxtrue"
+}
+
+while true;
+do
+    downspeed
+done | stag --title "cpu per temp" "$@"

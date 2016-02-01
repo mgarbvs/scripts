@@ -1,0 +1,60 @@
+#!/bin/fish
+#
+# rice - Display some rice info with a smug trianle face
+# onodera, https://github.com/onodera-punpun
+
+## CONFIGURATION
+
+# Set colors
+set fg normal
+#set fg green
+set c1 yellow
+#set cl brown
+# Resize the terminal
+set resize true
+
+# Set variables
+set hostname (hostname)
+set distro (hostname )
+set kernel (uname -r -s)
+set init xinit
+set shell zsh
+set packages (pacman -Qqs | wc -l)
+set wm i3
+set font tewi
+
+
+## EXECUTE
+
+# Resize terminal
+if test -n $DISPLAY -a $resize = true
+	#wtp 0 0 200 500 "$(pfw)"
+	sleep 0.1
+end
+
+# Get random number
+set ascii (seq 2 | shuf -n 1)
+clear
+if test $ascii -eq 1
+	echo "                   "(set_color $c1)"$USER"(set_color $fg)"@"(set_color $c1)"$hostname"(set_color $fg)""
+	echo "       /\          "
+	echo "      /  \         "(set_color $c1)"Distro"(set_color $fg)"    $distro"
+	echo "     /    \        "(set_color $c1)"Kernel"(set_color $fg)"    $kernel"
+	echo "    /˚̆̈̉` ˚̆̈̉` \       "(set_color $c1)"Init/rc"(set_color $fg)"   $init"
+	echo "   /   レ   \      "(set_color $c1)"Shell"(set_color $fg)"     $shell"
+	echo "  /     つ   \     "(set_color $c1)"Packages"(set_color $fg)"  $packages"
+	echo " /            \    "(set_color $c1)"WM"(set_color $fg)"        $wm"
+	echo " ‾‾‾‾‾‾‾‾‾‾‾‾‾‾    "(set_color $c1)"Font"(set_color $fg)"      $font"
+end
+
+if test $ascii -eq 2
+	echo "                   "(set_color $c1)"$USER"(set_color $fg)"@"(set_color $c1)"$hostname"(set_color $fg)""
+	echo "     .---､         "
+	echo "     |· ·|         "(set_color $c1)"Distro:"(set_color $fg)"    $distro"
+	echo "     | ゝ|         "(set_color $c1)"Kernel:"(set_color $fg)"    $kernel"
+	echo "    ΣIIIII         "(set_color $c1)"Init/rc:"(set_color $fg)"   $init"
+	echo "     |   |         "(set_color $c1)"Shell:"(set_color $fg)"     $shell"
+	echo "     |___|         "(set_color $c1)"Packages:"(set_color $fg)"  $packages"
+	echo "      | |          "(set_color $c1)"WM:"(set_color $fg)"        $wm"
+	echo "      └ └          "(set_color $c1)"Font:"(set_color $fg)"      $font"
+end

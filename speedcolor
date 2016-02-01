@@ -1,0 +1,25 @@
+#
+#                                      ██                   ██
+#         ██████                      ░██                  ░██
+#  ██████░██░░░██  █████   █████      ░██  █████   ██████  ░██  ██████  ██████
+# ██░░░░ ░██  ░██ ██░░░██ ██░░░██  ██████ ██░░░██ ██░░░░██ ░██ ██░░░░██░░██░░█
+#░░█████ ░██████ ░███████░███████ ██░░░██░██  ░░ ░██   ░██ ░██░██   ░██ ░██ ░
+# ░░░░░██░██░░░  ░██░░░░ ░██░░░░ ░██  ░██░██   ██░██   ░██ ░██░██   ░██ ░██
+# ██████ ░██     ░░██████░░██████░░██████░░█████ ░░██████  ███░░██████ ░███
+#░░░░░░  ░░       ░░░░░░  ░░░░░░  ░░░░░░  ░░░░░   ░░░░░░  ░░░  ░░░░░░  ░░░
+#
+#Original code from install-gentoo script on 4chan's /g/ (archived on rbt.asia/g/)
+#  ▓▓▓▓▓▓▓▓▓▓
+# ░▓ author ▓ mgarbvs
+# ░▓ code   ▓ http://github.org/mgarbvs
+# ░▓ info   ▓ Original code from install-gentoo script on 4chan's /g/ (archived on rbt.asia/g/)
+# ░▓ info   ▓ displays a ton of colors. feel free to add
+# ░▓▓▓▓▓▓▓▓▓▓
+# ░░░░░░░░░░
+
+   while :;
+        do
+                echo -en "\033[3$((RANDOM%8));4$((RANDOM%8))m█▓▒░\033[m"
+
+                    sleep 0.01 # Slowing down the speed to scroll smoother; adjust to your needs.
+                    done
